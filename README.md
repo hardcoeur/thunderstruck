@@ -3,7 +3,7 @@
 Thunderstruck is a modular desktop launcher application for Linux, activated by a global keyboard shortcut, providing quick access to various functional modes.
 
 ![screenshot of splash](promoresource/splash.png)
-![screenshot of launcher and preferences](promoresource/launcherandprefs.png)
+![screenshot of launcher and preferences](promoresource/prefsandlauncher.png)
 ![screenshot of aichat](promoresource/aichat.png)
 ![screenshot of wmctrl](promoresource/wmctrl.png)
 
