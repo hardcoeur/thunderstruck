@@ -1,0 +1,28 @@
+using Gtk 4.0;
+
+template $LauncherWidget : Gtk.Box {
+  orientation: vertical;
+  spacing: 6;
+  margin-top: 6;
+  margin-bottom: 6;
+  margin-start: 6;
+  margin-end: 6;
+
+  Gtk.SearchEntry search_entry {
+    placeholder-text: _("Search applications and commands...");
+    // Future: Add signal handlers for search changes
+  }
+
+  Gtk.ScrolledWindow {
+    vexpand: true;
+    hscrollbar-policy: never; // Assuming vertical list
+
+    Gtk.ListView results_list {
+      // Model and factory will be set later
+    }
+    // Alternative: Gtk.ListBox if ListView proves complex initially
+    // Gtk.ListBox results_list {
+    //   selection-mode: single;
+    // }
+  }
+}

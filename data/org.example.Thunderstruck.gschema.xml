@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.example.Thunderstruck" path="/org/example/Thunderstruck/">
+    <key name="global-shortcut" type="s">
+      <default>'&lt;Control&gt;&lt;Alt&gt;Space'</default>
+      <summary>Global shortcut to activate Thunderstruck</summary>
+      <description>The key combination used to bring up the main Thunderstruck window.</description>
+    </key>
+    <key name="vertex-ai-api-key" type="s">
+      <default>''</default>
+      <summary>Google Cloud Vertex AI API Key</summary>
+      <description>The API key required for accessing Google Cloud Vertex AI services.</description>
+    </key>
+    <key name="openrouter-api-key" type="s">
+      <default>''</default>
+      <summary>OpenRouter API Key</summary>
+      <description>The API key required for accessing OpenRouter services.</description>
+    </key>
+    <key name="launcher-max-results" type="i">
+      <range min="1" max="20"/>
+      <default>10</default>
+      <summary>Maximum number of results in Launcher</summary>
+      <description>The maximum number of applications and executables shown in the Launcher mode results list.</description>
+    </key>
+  </schema>
+</schemalist>

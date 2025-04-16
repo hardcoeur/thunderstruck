@@ -1,0 +1,87 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $WelcomeWindow : Adw.Window {
+  styles ["welcome-window"]
+  // Properties for the window itself
+  title: "Thunderstruck - Loading..."; // Example title
+  default-width: 600;
+  default-height: 400;
+  resizable: false;
+  modal: true;
+  // decorated: false; // Uncomment if you don't want window decorations
+
+  // The main content is the grid
+  content: Gtk.Grid {
+    // id: "main_box"; // Removed - Gtk.Grid does not have 'id' property
+    column-spacing: 12;
+    row-spacing: 12;
+    margin-top: 24;
+    margin-bottom: 24;
+    margin-start: 24;
+    margin-end: 24;
+
+    Gtk.Box {
+      orientation: vertical;
+      spacing: 12;
+      valign: center;
+      hexpand: true;
+
+      Gtk.Label {
+        label: "Hardcoeur Studios Presents..."; // Placeholder
+        styles [
+          "caption"
+        ]
+      }
+
+      // Replaced Label with Picture for logo
+      Gtk.Picture {
+        file: "resource:///org/example/Thunderstruck/images/logo.png"; // Use resource-path
+        // You might want to set width/height requests or other properties
+        // width-request: 200;
+        // height-request: 100;
+        can-shrink: false;
+        styles ["welcome-logo"] // Add a specific class for styling if needed
+      }
+
+      Gtk.Label {
+        label: "© 2025 Hardcoeur Studios. All rights reserved."; // Placeholder
+        styles ["caption"]
+        vexpand: true;
+        valign: end;
+      }
+
+      // Moved status label here
+      Gtk.Label status_label { // Name becomes ID for @Gtk.Template.Child
+        label: "Initializing..."; // Status label
+        halign: center;
+        margin-top: 12;
+        styles ["welcome-status"] // Use custom class
+      }
+
+      layout {
+        column: 0;
+        row: 0;
+        row-span: 1;
+      }
+    }
+
+    Gtk.Picture splash_image { // Name becomes ID for @Gtk.Template.Child
+      styles ["welcome-image"]
+      file: "resource:///org/example/Thunderstruck/images/splash.png"; // Example resource path
+      can-shrink: false;
+      valign: center;
+      hexpand: true;
+      width-request: 287; // Example size
+      height-request: 300; // Example size
+
+      layout {
+        column: 1;
+        row: 0;
+        row-span: 1;
+      }
+    }
+
+    // status_label block moved into the Gtk.Box above
+  }; // End of content Gtk.Grid
+} // End of template $WelcomeWindow

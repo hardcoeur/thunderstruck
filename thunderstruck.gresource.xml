@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/example/Thunderstruck">
+    <file alias="ui/welcome_screen.ui">thunderstruck/components/welcome_screen/welcome_screen.ui</file>
+    <file alias="images/splash.png">data/splash.png</file>
+    <file alias="images/logo.png">data/logo.png</file>
+    <file alias="ui/main_window.ui">thunderstruck/components/main_window/main_window.ui</file>
+    <file alias="ui/preferences.ui">thunderstruck/components/preferences_window/preferences.ui</file>
+    <file alias="ui/ai_chat.ui">thunderstruck/modes/ai_chat_mode/ai_chat.ui</file>
+    <file alias="ui/clipboard_history.ui">thunderstruck/modes/clipboard_history_mode/clipboard_history.ui</file>
+    <file alias="ui/window_management.ui">thunderstruck/modes/window_management_mode/window_management.ui</file>
+    <file alias="ui/launcher.ui">thunderstruck/modes/launcher_mode/launcher.ui</file> 
+    <file alias="css/style.css">data/style.css</file>
+  </gresource>
+</gresources>

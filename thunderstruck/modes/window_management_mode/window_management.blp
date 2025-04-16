@@ -1,0 +1,29 @@
+// thunderstruck/modes/window_management_mode/window_management.blp
+using Gtk 4.0;
+
+template $WindowManagementWidget : Gtk.Box {
+  orientation: vertical;
+  spacing: 6;
+  margin-top: 12;
+  margin-bottom: 12;
+  margin-start: 12;
+  margin-end: 12;
+
+  SearchEntry search_entry {
+    placeholder-text: _("Search window actions...");
+    // We'll connect signals later if needed for filtering
+  }
+
+  ScrolledWindow {
+    hexpand: true;
+    vexpand: true;
+    hscrollbar-policy: never; // Horizontal scrollbar not needed
+    vscrollbar-policy: automatic;
+
+    ListBox action_list_box {
+      selection-mode: none; // No selection needed for now
+      styles ["boxed-list"] // Use Adwaita style for list appearance
+      // Rows will be populated programmatically
+    }
+  }
+}

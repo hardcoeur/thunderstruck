@@ -1,0 +1,65 @@
+using Gtk 4.0;
+using Adw 1;
+
+// Define the menu model separately
+menu primary_menu {
+  section {
+    item {
+      label: _("Preferences");
+      action: "app.preferences";
+    }
+  }
+  section {
+    item {
+      label: _("Quit");
+      action: "app.quit";
+    }
+  }
+}
+
+// Define the MainWindow template based on Adw.ApplicationWindow
+template $MainWindow : Adw.ApplicationWindow {
+  // Window Properties
+  title: "";
+  default-width: 600;
+  default-height: 350; // Slightly shorter to encourage less content initially
+  // Main content is a ToolbarView
+  content: Adw.ToolbarView {
+    // HeaderBar completely removed
+
+    // Content is set directly
+    content: Gtk.Box { // This box holds stack and mode bar
+      orientation: vertical;
+      spacing: 0; // No space between stack and bar
+
+      Adw.ViewStack mode_stack {
+        // Assign an ID so we can reference it from the code
+        // Expand to fill available space
+        vexpand: true;
+      }
+
+      Gtk.Box {
+        // This is the mode selection bar container
+        styles ["mode-bar"]
+        valign: end; // Stick to the bottom
+        vexpand: false;        // Don't expand vertically
+
+        // Inner box to center the mode buttons
+        Gtk.Box mode_selector_box {
+          halign: center; // Center horizontally within the bar
+          spacing: 6; // Space between buttons
+        } // End mode_selector_box
+
+        // Moved Menu Button
+        Gtk.MenuButton {
+          icon-name: "open-menu-symbolic"; // Original icon
+          menu-model: primary_menu;       // Original model
+          halign: end;                    // Align right
+          margin-end: 6;
+          margin-top: 3;
+          margin-bottom: 3;
+        }
+      } // End bottom bar Gtk.Box
+    }; // End content Box
+  }; // End ToolbarView
+}

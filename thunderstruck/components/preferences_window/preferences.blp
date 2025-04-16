@@ -1,0 +1,76 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $PreferencesDialog : Adw.PreferencesDialog {
+  title: _("Preferences");
+  // searchable: true; // Can enable later if needed
+
+  Adw.PreferencesPage {
+    title: _("General"); // Title for the page itself
+    icon-name: "preferences-system-symbolic"; // Icon for the page
+
+
+  Adw.PreferencesGroup general_group { // Added ID for Python access
+    title: _("Appearance &amp; Behavior");
+
+    Adw.ActionRow {
+      title: _("Global Shortcut");
+      subtitle: _("Key combination to activate Thunderstruck");
+      // We will bind the actual shortcut value to the label later
+      // and implement the button's action.
+
+      [suffix]
+      Gtk.Box {
+        spacing: 6;
+        valign: center;
+
+        Gtk.Label shortcut_label {
+          label: "<Control><Alt>Space"; // Placeholder/Default display
+          // TODO: Bind this to the actual GSettings value
+        }
+
+        Gtk.Button set_shortcut_button {
+          label: _("Set...");
+          // TODO: Connect signal handler to open shortcut capture dialog
+        }
+      }
+    }
+
+    // Add more preference rows here in the future
+  }
+
+  Adw.PreferencesGroup api_keys_group { // Added ID for Python access
+    title: _("API Keys");
+
+    Adw.PasswordEntryRow vertex_api_key_row {
+      title: _("Google Cloud Vertex AI API Key");
+      // Binding will be done in Python code
+    }
+
+    Adw.PasswordEntryRow openrouter_api_key_row {
+      title: _("OpenRouter API Key");
+      // Binding will be done in Python code
+    }
+  }
+
+  Adw.PreferencesGroup launcher_group { // Added ID
+    title: _("Launcher Settings");
+
+    Adw.SpinRow launcher_max_results_row {
+      title: _("Max Launcher Results");
+      subtitle: _("Maximum items shown in the launcher list");
+      adjustment: Gtk.Adjustment {
+        value: 10; // Default from schema
+        lower: 1;  // Min from schema
+        upper: 20; // Max from schema
+        step-increment: 1;
+      };
+      // Binding will be done in Python code
+    }
+  }
+
+  // Add more preference groups here inside the page
+  } // End Adw.PreferencesPage
+
+  // Add more preference pages here
+}

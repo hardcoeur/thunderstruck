@@ -1,0 +1,42 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $AiChatWidget : Gtk.Box {
+  orientation: vertical;
+  spacing: 6;
+  margin-top: 6;
+  margin-bottom: 6;
+  margin-start: 6;
+  margin-end: 6;
+
+  Gtk.ScrolledWindow {
+    vexpand: true;
+    hexpand: true;
+    hscrollbar-policy: never;
+    vscrollbar-policy: automatic;
+
+    Gtk.Box chat_box {
+      orientation: vertical;
+      spacing: 6;
+      margin-top: 6;
+      margin-bottom: 6;
+      margin-start: 6;
+      margin-end: 6;
+      // Messages will be added here dynamically
+    }
+  }
+
+  // Spinner to show when waiting for AI response
+  Gtk.Spinner spinner {
+    halign: center;
+    visible: false; // Initially hidden
+    spinning: false;
+    margin-bottom: 6; // Add some space below the spinner
+  }
+
+  Adw.EntryRow message_entry {
+    title: _("Message"); // Using a generic title, can be hidden if needed
+    show-apply-button: true;
+    // We can connect to the 'apply' signal instead of a separate button
+  }
+}

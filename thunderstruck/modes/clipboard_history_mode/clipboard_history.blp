@@ -1,0 +1,38 @@
+using Gtk 4.0;
+
+// Import the base mode if needed, though inheriting widgets directly might be simpler
+// using Thunderstruck.Modes 1.0 as Modes; // Assuming BaseMode is exposed if needed
+
+template $ClipboardHistoryWidget : Gtk.Box { // Inherit from Gtk.Box for layout
+  orientation: vertical;
+  spacing: 6;
+  margin-top: 6;
+  margin-bottom: 6;
+  margin-start: 6;
+  margin-end: 6;
+
+  // Add the Search Entry
+  Gtk.SearchEntry search_entry {
+    placeholder-text: _("Search Clipboard History...");
+    hexpand: true;
+    // Connect signals here or in Python code if needed
+  }
+
+  // Add a Scrolled Window for the list
+  Gtk.ScrolledWindow {
+    vexpand: true;
+    hexpand: true;
+    hscrollbar-policy: never; // Usually not needed for vertical lists
+    vscrollbar-policy: automatic;
+
+    // Add the ListBox inside the Scrolled Window
+    Gtk.ListBox list_box {
+      selection-mode: single; // Allow selecting one item
+      // Placeholder rows will be added from the Python code
+      // Add Adw styling if desired
+      styles [
+        "boxed-list"
+      ]
+    }
+  }
+}

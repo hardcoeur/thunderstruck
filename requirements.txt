@@ -1,0 +1,3 @@
+PyGObject>=3.42 # Or match system version if needed
+requests>=2.20 # Or a more specific version
+google-cloud-aiplatform>=1.38 # Or a more specific version
