@@ -85,7 +85,7 @@ Settings can be managed through the **Preferences** dialog, accessible via the m
 *   **Window Management:** Displays a list of currently open application windows. (Functionality may expand in the future).
 *   **Clipboard History:** Shows a list of recent text items copied to the clipboard. Select an item to copy it back to the clipboard.
 
-##TODO
+## TODO
 
 * Set a better schema ID
 * Finish implementation of extension support.
